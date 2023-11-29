@@ -22,6 +22,24 @@ func bubbleSort(arr []int) []int {
 	return arr
 }
 
+func selectionSort(arr []int) []int {
+	for i, _ := range arr {
+		smallest := i
+		for j := i; j < len(arr)-1; j++ {
+			if arr[j] < arr[smallest] {
+				smallest = j
+			}
+		}
+		if smallest != i {
+			temp := arr[i]
+			arr[i] = arr[smallest]
+			arr[smallest] = temp
+		}
+	}
+
+	return arr
+}
+
 func insertionSort(arr []int) []int {
 	for i := 1; i < len(arr); i++ {
 		j := i
@@ -43,5 +61,5 @@ func main() {
 	// arr = insertionSort(arr)
 	// fmt.Println(arr)
 
-	fmt.Println(bubbleSort(arr))
+	fmt.Println(selectionSort(arr))
 }
